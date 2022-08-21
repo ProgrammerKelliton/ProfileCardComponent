@@ -29,8 +29,9 @@
 }
 
 .container {
-    width: 80vw;
-    height: 30vh;
+    width: max(20vw, 300px);
+    height: 400px;
+    z-index: 1;
 
     &__background {
         height: $background-conteinerSize;
@@ -53,9 +54,17 @@
     height: calc(100% - $background-conteinerSize);
 
     &__person {
-        width: 80px;
+        width: $imageSize-person;
         position: absolute;
-        transform: translateY(-87px);
+        transform: translateY(calc($imageSize-person - 210%));
+    }
+    &__divider {
+        width: 100%;
+        height: 1px;
+        margin: 7%;
+    }
+    &__infoStatus {
+        width: 80%;
     }
 }
 .card {
@@ -66,15 +75,38 @@
         border-radius: 50%;
         border: 4px solid white;
     }
+    &__country {
+        font-weight: 400;
+        color: grey;
+    }
+    &__divider {
+        background-color: gainsboro;
+    }
 }
 
 .info {
-    @include flex(row);
-    gap: 5%;
     width: 100%;
+
+    &__name,
+    &__age {
+        font-size: larger;
+    }
+    &__name {
+        font-weight: 700;
+    }
+    &__age {
+        font-weight: 400;
+        color: grey;
+    }
 }
 
 .App,
 .card {
     @include flex(column);
+}
+
+.info,
+.card__infoStatus {
+    @include flex(row);
+    gap: 3%;
 }

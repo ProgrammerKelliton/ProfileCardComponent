@@ -1,0 +1,16 @@
+@import "../../styles/mixin.scss";
+
+.Info {
+    @include flex(column);
+    flex: 1;
+}
+.Info {
+    &__value {
+        text-transform: uppercase;
+        font-size: larger;
+    }
+    &__name {
+        font-size: small;
+        color: grey;
+    }
+}
