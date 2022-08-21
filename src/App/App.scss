@@ -1,0 +1,31 @@
+@import "../styles/mixin", "../styles/variables";
+
+.App {
+    @include flex(column);
+    height: 100vh;
+
+    &::after,
+    &::before {
+        width: 10px;
+        position: fixed;
+    }
+    &::after {
+        top: 50vh;
+        left: max(50%, 60vw);
+    }
+    &::before {
+        bottom: 45vh;
+        right: max(1200px, 115%);
+    }
+}
+
+.App {
+    background-color: $dark-cyan;
+
+    &::before {
+        content: url("../../public/images/bg-pattern-top.svg");
+    }
+    &::after {
+        content: url("../../public/images/bg-pattern-bottom.svg");
+    }
+}
